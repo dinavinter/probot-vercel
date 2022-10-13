@@ -1,6 +1,12 @@
 const { createNodeMiddleware, createProbot } = require("probot");
 
 const app = require("../../../app");
-const probot = createProbot();
+export default async function handler(req, res) {
+  const probot = createProbot();
 
-module.exports = createNodeMiddleware(app, { probot, webhooksPath: '/api/github/webhooks' });
+  const pApp = await probot.load(app);
+
+  var octokit = await pApp.auth();
+
+  res.json(await octokit.apps.listInstallations());
+}
