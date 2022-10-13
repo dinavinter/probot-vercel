@@ -11,7 +11,8 @@
   "license": "ISC",
   "repository": "github:probot/example-vercel",
   "dependencies": {
-    "probot": "^12.2.7"
+    "probot": "^12.2.7",
+    "probot-scheduler": "^2.0.0-beta.1"
   },
   "devDependencies": {
     "nock": "^13.2.9",
