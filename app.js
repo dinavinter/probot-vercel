@@ -23,6 +23,11 @@ module.exports = (app, { getRouter }) => {
   //   });
   // }
   router.use(require("express").static("public"));
+  router.get("/", async (req, res) => {
+    console.log(app.octokit);
+    const octokit = await app.auth();
+    res.json(await octokit.apps.listInstallations());
+  });
   router.get("/installations", async (req, res) => {
     console.log(app.octokit);
     const octokit = await app.auth();
