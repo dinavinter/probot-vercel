@@ -7,7 +7,8 @@ nock.disableNetConnect();
 const { Probot, ProbotOctokit } = require("probot");
 
 const app = require("./app");
-
+const express = require('express')
+const expressapp = express()
 /** @type {import('probot').Probot */
 let probot;
 const test = suite("app");
@@ -22,8 +23,14 @@ test.before.each(() => {
       throttle: { enabled: false },
       retry: { enabled: false },
     }),
+    
+  }
+  );
+  probot.load(app, {
+    getRouter: (x)=>  expressapp
+    
+
   });
-  probot.load(app);
 });
 
 test("recieves issues.opened event", async function () {
