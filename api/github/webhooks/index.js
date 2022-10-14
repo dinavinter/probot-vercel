@@ -1,6 +1,6 @@
 const { createNodeMiddleware, createProbot } = require("probot");
 
-const app = require("../../../app");
+const {OpenApiBundleProbot} = require("@api-io/bundle").default;
 const probot = createProbot();
 
-module.exports = createNodeMiddleware(app, { probot, webhooksPath: '/api/github/webhooks' });
+module.exports = createNodeMiddleware(OpenApiBundleProbot, { probot, webhooksPath: '/api/github/webhooks' });

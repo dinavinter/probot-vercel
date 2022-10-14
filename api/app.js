@@ -1,6 +1,6 @@
 const { createNodeMiddleware, createProbot } = require("probot");
 
-const app = require("../../../app");
+const app = require("@api-io/bundle");
 export default async function handler(req, res) {
   const probot = createProbot();
 
