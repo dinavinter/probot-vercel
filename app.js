@@ -1,8 +1,8 @@
 const createScheduler = require("probot-scheduler");
 const { ProbotOctokit } = require("probot");
-const {OpenApiBundleProbot} = require("@api-io/bundle").default;
+const {OpenApiBundleProbot} = require("@api-io/bundle");
 
 /**
  * @param {import('probot').Probot} app
  */
-module.exports = (app)=> OpenApiBundleProbot(app);
+module.exports =OpenApiBundleProbot;

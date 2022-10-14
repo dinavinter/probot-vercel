@@ -1,10 +1,10 @@
 const { createNodeMiddleware, createProbot } = require("probot");
 
-const app = require("@api-io/bundle");
+const {OpenApiBundleProbot} = require("@api-io/bundle");
 export default async function handler(req, res) {
   const probot = createProbot();
 
-  const pApp = await probot.load(app);
+  const pApp = await probot.load(OpenApiBundleProbot);
 
   var octokit = await pApp.auth();
 
