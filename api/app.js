@@ -6,7 +6,7 @@ export default async function handler(req, res) {
 
   const pApp = await probot.load(OpenApiBundleProbot);
 
-  var octokit = await pApp.auth();
+  var octokit = await probot.auth();
 
   res.json(await octokit.apps.listInstallations());
 }
